@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Lịch sử đơn hàng</h2>
+
+<table style="width:100%; background:white; border-collapse:collapse;">
+
+<tr>
+<th>ID</th>
+<th>Tổng tiền</th>
+<th>Ngày</th>
+</tr>
+
+{% for o in orders %}
+
+<tr>
+<td>{{o[0]}}</td>
+<td>{{o[2]}} VND</td>
+<td>{{o[3]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

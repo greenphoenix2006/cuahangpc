@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Admin</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+}
+
+.box{
+width:80%;
+margin:auto;
+}
+
+.stats{
+display:flex;
+gap:20px;
+margin:30px 0;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+flex:1;
+text-align:center;
+box-shadow:0 0 5px rgba(0,0,0,0.2);
+}
+
+table{
+width:100%;
+background:white;
+border-collapse:collapse;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Admin Dashboard</h2>s
+
+<div class="stats">
+
+<div class="card">
+<h3>Revenue Today</h3>
+<p>{{day}}</p>
+</div>
+
+<div class="card">
+<h3>Revenue Month</h3>
+<p>{{month}}</p>
+</div>
+
+<div class="card">
+<h3>Revenue Year</h3>
+<p>{{year}}</p>
+</div>
+
+</div>
+
+<h3>Orders</h3>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>User</th>
+<th>Total</th>
+<th>Date</th>
+</tr>
+
+{% for o in orders %}
+
+<tr>
+
+<td>{{o[0]}}</td>
+
+<td>{{o[1]}}</td>
+
+<td>{{o[2]}}</td>
+
+<td>{{o[3]}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

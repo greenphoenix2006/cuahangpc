@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shopping Cart</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    margin:40px;
+}
+
+table{
+    width:80%;
+    border-collapse: collapse;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+}
+
+button{
+    padding:5px 10px;
+    cursor:pointer;
+}
+
+.total{
+    font-size:20px;
+    margin-top:20px;
+}
+
+.checkout{
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Your Cart</h2>
+
+{% if items|length == 0 %}
+
+<h3>Cart is empty</h3>
+<a href="/">Continue shopping</a>
+
+{% else %}
+
+<table>
+
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Subtotal</th>
+</tr>
+
+{% for p,q,s in items %}
+
+<tr>
+
+<td>{{p[1]}}</td>
+
+<td>${{p[3]}}</td>
+
+<td>
+
+<a href="/decrease/{{p[0]}}">
+<button>-</button>
+</a>
+
+{{q}}
+
+<a href="/increase/{{p[0]}}">
+<button>+</button>
+</a>
+
+</td>
+
+<td>${{s}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div class="total">
+<b>Total: ${{total}}</b>
+</div>
+
+<div class="checkout">
+
+<a href="/checkout">
+<button>Checkout</button>
+</a>
+
+<a href="/">
+<button>Continue Shopping</button>
+</a>
+
+</div>
+
+{% endif %}
+
+</body>
+</html>

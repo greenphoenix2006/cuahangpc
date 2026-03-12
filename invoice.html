@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Invoice</title>
+
+<style>
+
+body{
+font-family:Arial;
+}
+
+table{
+width:60%;
+margin:auto;
+border-collapse:collapse;
+}
+
+th,td{
+border:1px solid #ccc;
+padding:10px;
+text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2 style="text-align:center;">Invoice</h2>
+
+<table>
+
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Quantity</th>
+</tr>
+
+{% for i in items %}
+
+<tr>
+
+<td>{{i[0]}}</td>
+
+<td>{{i[1]}}</td>
+
+<td>{{i[2]}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<h3 style="text-align:center;">Total: {{total}}</h3>
+<p>Payment Method: {{payment}}</p>
+
+<div style="text-align:center;">
+<a href="/">Back to shop</a>
+</div>
+
+</body>
+</html>
