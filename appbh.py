@@ -8,7 +8,9 @@ app = Flask(__name__)
 app.secret_key="pcstore"
 
 def db():
-    return sqlite3.connect("store.db")
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(BASE_DIR, "store.db")
+    return sqlite3.connect(db_path)
 
 # HOME
 @app.route("/")
@@ -342,4 +344,5 @@ def admin():
     return render_template("admin.html",orders=orders,day=day,month=month,year=year)
 
 if __name__=="__main__":
+
     app.run(debug=True)
